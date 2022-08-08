@@ -1,9 +1,9 @@
 export interface UsersAttributes {
   isLoggedIn: boolean;
-  username: string | null;
+  email: string | null;
 }
 
 export interface LoginValue {
-  ID: string;
+  email: string;
   password: string;
 }

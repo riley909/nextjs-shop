@@ -7,7 +7,7 @@ export const USER_KEY = 'login-info';
 export default function Login() {
   const router = useRouter();
   const [loginValues, setLoginValues] = useState<LoginValue>({
-    ID: '',
+    email: '',
     password: '',
   });
   const [errorText, setErrorText] = useState<string>('');
@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const loginId = loginValues.ID;
+    const loginEmail = loginValues.email;
     const loginPwd = loginValues.password;
     const loginUser = JSON.parse(localStorage.getItem(USER_KEY)!);
 
@@ -29,7 +29,7 @@ export default function Login() {
       router.push('/quiz');
     } else {
       // 있으면 회원정보 체크
-      if (loginId === loginUser.ID && loginPwd === loginUser.password) {
+      if (loginEmail === loginUser.email && loginPwd === loginUser.password) {
         router.push('/quiz');
       } else {
         setErrorText(`회원정보를 다시 확인해 주세요.`);
@@ -43,10 +43,10 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <input
           required
-          type="text"
-          placeholder="ID"
-          name="ID"
-          value={loginValues.ID}
+          type="email"
+          placeholder="email"
+          name="email"
+          value={loginValues.email}
           onChange={handleChange}
         />
         <input
