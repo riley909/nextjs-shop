@@ -17,7 +17,25 @@ export default function Login() {
     setLoginValues({ ...loginValues, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent) => {};
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const loginId = loginValues.ID;
+    const loginPwd = loginValues.password;
+    const loginUser = JSON.parse(localStorage.getItem(USER_KEY)!);
+
+    if (!loginUser) {
+      // 해당 아이디 없으면 새로 저장하고 로그인
+      localStorage.setItem(USER_KEY, JSON.stringify(loginValues));
+      router.push('/quiz');
+    } else {
+      // 있으면 회원정보 체크
+      if (loginId === loginUser.ID && loginPwd === loginUser.password) {
+        router.push('/quiz');
+      } else {
+        setErrorText(`회원정보를 다시 확인해 주세요.`);
+      }
+    }
+  };
 
   return (
     <div>
