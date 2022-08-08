@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Radio from '../components/Radio';
+import Radio from '../components/productAdd/Radio';
 import { RadioButtonList } from '../styles/productAdd';
 
 export default function ProductAdd() {

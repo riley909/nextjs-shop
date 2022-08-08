@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { RadioButtonProps } from '../interface/productAdd';
-import { RadioButton, RadioButtonText } from '../styles/productAdd';
+import { RadioButtonProps } from '../../interface/productAdd';
+import { RadioButton, RadioButtonText } from '../../styles/productAdd';
 
 export default function Radio(props: RadioButtonProps) {
   const [checked, setChecked] = useState<string | null>(null);
