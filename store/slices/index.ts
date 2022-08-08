@@ -1,7 +1,11 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { AnyAction, CombinedState, combineReducers } from 'redux';
+import { UsersAttributes } from '../../interface/users';
+import users from './users';
 
-export type IState = {};
+export type IState = {
+  users: UsersAttributes;
+};
 
 const rootReducer = (state: IState, action: AnyAction): CombinedState<IState> => {
   switch (action.type) {
@@ -10,7 +14,7 @@ const rootReducer = (state: IState, action: AnyAction): CombinedState<IState> =>
 
     default: {
       return combineReducers({
-        // 리듀서 모듈(slice) 추가
+        users,
       })(state, action);
     }
   }

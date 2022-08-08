@@ -1,16 +1,22 @@
-import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
-import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
-import rootReducer from './slices';
+import { AnyAction, configureStore, EnhancedStore, Reducer } from '@reduxjs/toolkit';
+import { Context, createWrapper } from 'next-redux-wrapper';
+import { USER_KEY } from '../pages/login';
+import rootReducer, { IState } from './slices';
+import LocalStorage from '../utils/LocalStorage';
 
 const devMode = process.env.NODE_ENV === 'development';
 
+const user = JSON.parse(LocalStorage.getItem(USER_KEY)!);
+const isLoggedIn = user ? true : false;
+
 const store = configureStore({
-  rootReducer,
+  reducer: rootReducer as Reducer<IState, AnyAction>,
   devTools: devMode,
+  preloadedState: { users: { isLoggedIn, username: user ? user.ID : null } },
 });
 
 const setupStore = (ctx: any): EnhancedStore => store;
-const makeStore: MakeStore<RootState> = (ctx: Context) => setupStore(ctx);
+const makeStore = (ctx: Context) => setupStore(ctx);
 
 const wrapper = createWrapper(makeStore, {
   debug: devMode,
