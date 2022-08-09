@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { StyledInputProps } from '../../interface/productAdd';
-
-export const InputLabel = styled.label`
-  font-size: 13px;
-  color: #5a5e6a;
-  font-weight: bold;
-`;
+import { ProductAddLabel } from '../../styles/productAdd';
 
 export const TextInput = styled.input.attrs((props) => ({
   type: 'text',
@@ -23,12 +18,12 @@ export const TextInput = styled.input.attrs((props) => ({
 export default function StyledInput(props: StyledInputProps) {
   return (
     <div>
-      <InputLabel>
+      <ProductAddLabel>
         {props.name}
         <div>
           <TextInput placeholder={props.description} size={props.size} />
         </div>
-      </InputLabel>
+      </ProductAddLabel>
     </div>
   );
 }

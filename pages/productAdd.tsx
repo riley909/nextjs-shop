@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StyledInput from '../components/productAdd/StyledInput';
 import StyledRadio, { RadioButtonList } from '../components/productAdd/StyledRadio';
+import { ProductAddLabel } from '../styles/productAdd';
 
 export default function ProductAdd() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,14 +18,15 @@ export default function ProductAdd() {
         <div>이미지</div>
         <StyledInput name="제품명" description="제품명 입력" />
         <StyledInput name="가격" description="0원" />
-        <div>
+
+        <ProductAddLabel>
           카테고리
           <RadioButtonList>
             <StyledRadio id="1" name="에코백" />
             <StyledRadio id="2" name="티셔츠" />
             <StyledRadio id="3" name="기타상품" />
           </RadioButtonList>
-        </div>
+        </ProductAddLabel>
       </form>
     </div>
   );
