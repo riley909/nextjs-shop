@@ -9,6 +9,7 @@ export const TextInput = styled.input.attrs((props) => ({
   border: 1px solid #e4e6ea;
   border-radius: 6px;
   height: ${(props) => props.size};
+  margin-bottom: 20px;
 
   &:focus {
     outline: none;

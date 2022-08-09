@@ -8,6 +8,7 @@ export const TextArea = styled.textarea`
   border-radius: 6px;
   resize: none;
   height: 200px;
+  margin-bottom: 20px;
 
   &:focus {
     outline: none;
