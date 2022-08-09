@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StyledInput from '../components/productAdd/StyledInput';
 import StyledRadio, { RadioButtonList } from '../components/productAdd/StyledRadio';
+import StyledTextarea from '../components/productAdd/StyledTextarea';
 import { ProductAddLabel } from '../styles/productAdd';
 
 export default function ProductAdd() {
@@ -18,7 +19,7 @@ export default function ProductAdd() {
         <div>이미지</div>
         <StyledInput name="제품명" description="제품명 입력" />
         <StyledInput name="가격" description="0원" />
-
+        <StyledTextarea name="상세 설명" description="상세 설명 입력" />
         <ProductAddLabel>
           카테고리
           <RadioButtonList>

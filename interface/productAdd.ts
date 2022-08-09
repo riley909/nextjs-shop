@@ -8,3 +8,8 @@ export interface StyledInputProps {
   description: string;
   size?: string;
 }
+
+export interface StyledTextareaProps {
+  name: string;
+  description: string;
+}
